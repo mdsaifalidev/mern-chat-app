@@ -34,6 +34,12 @@ const ChatList = ({ selectChat }) => {
     formState: { errors },
   } = useForm();
 
+  const {
+    register: registerChangePassword,
+    handleSubmit: handleSubmitChangePassword,
+    formState: { errors: changePasswordErrors },
+  } = useForm();
+
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -46,7 +52,7 @@ const ChatList = ({ selectChat }) => {
       const response = await axiosInstance.get("/api/v1/users/");
       setChats(response.data?.data);
     } catch (error) {
-      toast.error(error.response.data?.message || "Something went wrong.");
+      toast.error(error.response?.data?.message || "Something went wrong.");
     } finally {
       setIsLoading(false);
     }
@@ -69,7 +75,7 @@ const ChatList = ({ selectChat }) => {
       setUser(null);
       navigate("/login", { replace: true });
     } catch (error) {
-      toast.error(error.response.data?.message || "Something went wrong.", {
+      toast.error(error.response?.data?.message || "Something went wrong.", {
         id: toastId,
       });
     }
@@ -348,12 +354,15 @@ const ChatList = ({ selectChat }) => {
           <Modal.Title>Change Password</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form noValidate onSubmit={handleSubmit(onChangePasswordSubmit)}>
+          <Form
+            noValidate
+            onSubmit={handleSubmitChangePassword(onChangePasswordSubmit)}
+          >
             <Form.Group className="mb-3">
               <Form.Label>Current Password</Form.Label>
               <Form.Control
                 type="password"
-                {...register("currentPassword", {
+                {...registerChangePassword("currentPassword", {
                   required: "Current Password is required.",
                   minLength: {
                     value: 6,
@@ -361,11 +370,11 @@ const ChatList = ({ selectChat }) => {
                       "Current Password must have at least 6 characters.",
                   },
                 })}
-                isInvalid={errors.currentPassword}
+                isInvalid={changePasswordErrors.currentPassword}
               />
-              {errors.currentPassword && (
+              {changePasswordErrors.currentPassword && (
                 <Form.Control.Feedback type="invalid">
-                  {errors.currentPassword.message}
+                  {changePasswordErrors.currentPassword.message}
                 </Form.Control.Feedback>
               )}
             </Form.Group>
@@ -373,18 +382,18 @@ const ChatList = ({ selectChat }) => {
               <Form.Label>New Password</Form.Label>
               <Form.Control
                 type="password"
-                {...register("newPassword", {
+                {...registerChangePassword("newPassword", {
                   required: "New Password is required.",
                   minLength: {
                     value: 6,
                     message: "New Password must have at least 6 characters.",
                   },
                 })}
-                isInvalid={errors.newPassword}
+                isInvalid={changePasswordErrors.newPassword}
               />
-              {errors.newPassword && (
+              {changePasswordErrors.newPassword && (
                 <Form.Control.Feedback type="invalid">
-                  {errors.newPassword.message}
+                  {changePasswordErrors.newPassword.message}
                 </Form.Control.Feedback>
               )}
             </Form.Group>
