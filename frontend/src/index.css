@@ -1,0 +1,152 @@
+body {
+  background-color: var(--bs-light);
+  color: var(--bs-secondary);
+}
+
+h2,
+h3,
+.h4,
+.active {
+  color: var(--bs-primary);
+}
+
+a {
+  text-decoration: none;
+}
+
+.name {
+  color: var(--bs-dark);
+  font-weight: bold;
+}
+
+.chat-list {
+  height: 100vh;
+  overflow-y: auto;
+  background-color: #f8f9fa;
+  border-right: 1px solid #ddd;
+}
+
+.chat-list .list-group-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.chat-list .list-group-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.chat-list .list-group-item .chat-info {
+  flex: 1;
+}
+
+.chat-list .list-group-item .chat-info .name {
+  font-weight: bold;
+}
+
+.chat-list .list-group-item .chat-info .last-message {
+  font-size: 0.9em;
+  color: #888;
+}
+
+.chat-list .list-group-item .chat-info .time {
+  font-size: 0.8em;
+  color: #bbb;
+}
+
+.chat-window {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+}
+
+.chat-header img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.chat-header .user-info {
+  flex: 1;
+}
+
+.chat-header .user-info .name {
+  font-weight: bold;
+}
+
+.chat-header .action-buttons button {
+  margin-left: 5px;
+}
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f7f7f7;
+}
+
+.message {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.message.sent {
+  justify-content: flex-end;
+}
+
+.message.received {
+  justify-content: flex-start;
+}
+
+.message .message-text {
+  max-width: 60%;
+  padding: 10px;
+  border-radius: 10px;
+  position: relative;
+  color: var(--bs-dark);
+}
+
+.message.sent .message-text {
+  background-color: #dcf8c6;
+  margin-left: auto;
+}
+
+.message.received .message-text {
+  background-color: #ffffff;
+}
+
+.message .timestamp {
+  font-size: 0.8em;
+  color: #888;
+  margin-top: 5px;
+}
+
+.input-group {
+  padding: 10px;
+  border-top: 1px solid #ddd;
+}
+
+.input-group .form-control {
+  border-radius: 20px;
+}
+
+.input-group-append .btn {
+  border-radius: 20px;
+  margin-left: 5px;
+}
+
+.dropdown-item {
+  font-size: 14px;
+}
