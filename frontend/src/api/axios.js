@@ -1,7 +1,7 @@
 // src/api/axios.js
 import axios from "axios";
 import { redirect } from "react-router-dom";
-const BASE_URL = "http://localhost:8000";
+const BASE_URL = "https://mern-chat-app-kwi3.onrender.com";
 
 export default axios.create({
   baseURL: BASE_URL,
