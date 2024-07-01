@@ -1,7 +1,3 @@
-# mern-chat-app
-
-# MERN - Chat App
-
 # MERN Chat App with Passport.js
 
 ## Overview
