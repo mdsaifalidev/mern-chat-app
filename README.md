@@ -65,5 +65,3 @@ Contributions are welcome! Please feel free to submit a pull request or open an 
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-> > > > > > > cc82661 (Initial Commit)
